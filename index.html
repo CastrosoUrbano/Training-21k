@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mi Aplicación PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512x512.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Bienvenido a la Aplicación PWA</h1>
+  <p>¡Esta es una aplicación Progressive Web App!</p>
+
+  <!-- Aquí va tu contenido de la página -->
+
+  <script src="script.js"></script>
+  
+  <script>
+    // Registrar el Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registrado con éxito:', registration);
+        })
+        .catch((error) => {
+          console.log('Error al registrar el Service Worker:', error);
+        });
+    } else {
+      console.log('El navegador no soporta Service Workers');
+    }
+  </script>
+</body>
+</html>
